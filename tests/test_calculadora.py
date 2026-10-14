@@ -1,38 +1,58 @@
 import pytest
-from src.calculadora import sumar, dividir, promedio
+from src.calculadora import (
+    sumar, restar, multiplicar, dividir, 
+    potencia, raiz_cuadrada, promedio
+)
 
-def test_sumar_positivos():
-    # 1. Arrange (Preparar)
-    a = 5
-    b = 3
-    resultado_esperado = 8
+def test_sumar():
+    # 1. Arrange
+    a, b = 5, 3
+    # 2. Act
+    res = sumar(a, b)
+    # 3. Assert
+    assert res == 8
 
-    # 2. Act (Actuar)
-    resultado_obtenido = sumar(a, b)
+def test_restar():
+    # 1. Arrange
+    a, b = 10, 4
+    # 2. Act
+    res = restar(a, b)
+    # 3. Assert
+    assert res == 6
 
-    # 3. Assert (Afirmar)
-    assert resultado_obtenido == resultado_esperado
+def test_multiplicar():
+    # 1. Arrange
+    a, b = 6, 7
+    # 2. Act
+    res = multiplicar(a, b)
+    # 3. Assert
+    assert res == 42
 
-def test_dividir():
-    # 1. Arrange (Preparar)
-    a = 10
-    b = 5
-    resultado_esperado = 2.0
+def test_dividir_exitoso():
+    # 1. Arrange
+    a, b = 20, 4
+    # 2. Act
+    res = dividir(a, b)
+    # 3. Assert
+    assert res == 5.0
 
-    # 2. Act (Actuar)
-    resultado_obtenido = dividir(a, b)
+def test_dividir_por_cero_lanza_excepcion():
+    # 1. Arrange + 2. Act + 3. Assert
+    with pytest.raises(ValueError):
+        dividir(10, 0)
 
-    # 3. Assert (Afirmar)
-    assert resultado_obtenido == resultado_esperado
-  
+def test_potencia():
+    # 1. Arrange
+    base, exp = 2, 3
+    # 2. Act
+    res = potencia(base, exp)
+    # 3. Assert
+    assert res == 8
 
 def test_promedio_lista():
-    # 1. Arrange (Preparar)
-    numeros = [2, 4, 6, 8]
-    resultado_esperado = 5.0
-
-    # 2. Act (Actuar)
-    resultado_obtenido = promedio(numeros)
-
-    # 3. Assert (Afirmar)
-    assert resultado_obtenido == resultado_esperado
+    # 1. Arrange
+    numeros = [10, 20, 30]
+    # 2. Act
+    res = promedio(numeros)
+    # 3. Assert
+    assert res == 20.0
