@@ -27,8 +27,10 @@ def potencia(base, exponente):
 
 def raiz_cuadrada(numero):
     """Calcula la raíz cuadrada de un número."""
-    # BUG 1: No maneja números negativos
+    if numero < 0:
+        raise ValueError("El número no puede ser negativo")
     return numero ** 0.5
+    #BUG SOLUCIONADO
 
 def promedio(lista):
     """Calcula el promedio de una lista de números."""
@@ -50,12 +52,12 @@ def minimo(lista):
     """Encuentra el número mínimo de una lista."""
     if not lista:
         raise ValueError("La lista no puede estar vacía")
-    # BUG 2: No maneja correctamente la comparación inicial
-    min_val = 0
+    min_val = lista[0]  
     for num in lista:
         if num < min_val:
             min_val = num
     return min_val
+    #BUG SOLUCIONADO
 
 def calcular_area_rectangulo(base, altura):
     """Calcula el área de un rectángulo."""
