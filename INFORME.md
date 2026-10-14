@@ -37,6 +37,7 @@ De acuerdo con la estrategia de desarrollo propuesta en el correo, documenté lo
 ### A. Ejecución de Pruebas y Exposición de Bugs ANTES DE CORREGIRLOS
 La ejecución de `pytest` evidencia el comportamiento esperado de las pruebas orientadas a contratos y los fallos controlados que exponen los defectos lógicos del código base:
 
+```text
 (venv) aevd4123@aevd4123-ThinkPad-E14-Gen-3:~/Documentos/pruebas_unitarias_devops$ pytest --cov=src --cov-report=term-missing
 ================================================ test session starts =================================================
 platform linux -- Python 3.12.3, pytest-8.0.0, pluggy-1.6.0
@@ -76,9 +77,10 @@ FAILED tests/test_manipulador_texto.py::test_normalizar_espacios_y_truncar - Ass
 FAILED tests/test_validador.py::test_validar_email_invalidos - AssertionError: assert True is False
 FAILED tests/test_validador.py::test_validar_fecha_valida_y_bug - assert True is False
 =========================================== 13 failed, 84 passed in 0.28s ============================================
-
+```
 
 ### B. Ejecución de Pruebas y Exposición de Bugs DESPUÉS DE CORREGIR LOS 3 REQUERIDOS
+```text
 (venv) aevd4123@aevd4123-ThinkPad-E14-Gen-3:~/Documentos/pruebas_unitarias_devops$ pytest --cov=src --cov-report=term-missing
 ================================================ test session starts =================================================
 platform linux -- Python 3.12.3, pytest-8.0.0, pluggy-1.6.0
@@ -115,3 +117,4 @@ FAILED tests/test_manipulador_texto.py::test_normalizar_espacios_y_truncar - Ass
 FAILED tests/test_validador.py::test_validar_email_invalidos - AssertionError: assert True is False
 FAILED tests/test_validador.py::test_validar_fecha_valida_y_bug - assert True is False
 =========================================== 10 failed, 87 passed in 0.24s ============================================
+```
